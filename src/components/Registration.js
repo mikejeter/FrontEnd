@@ -11,6 +11,8 @@ function UserForm({values, errors, touched, status}) {
   }, [status])
 
   return (
+    <>
+    <h2>Sign Up!</h2>
     <Form className = 'register-form'>
 
       <div>
@@ -19,7 +21,7 @@ function UserForm({values, errors, touched, status}) {
           className = 'text-field'
           type = 'text'
           name = 'username'
-          placeholder = 'name'
+          placeholder = 'username'
         />
       </div>
 
@@ -60,6 +62,7 @@ function UserForm({values, errors, touched, status}) {
         />
       </div>
     </Form>
+    </>
   );
 };
 
