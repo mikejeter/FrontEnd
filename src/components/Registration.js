@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function UserForm({values, errors, touched, status}) {
   const [users, setUsers] = useState([]);
@@ -61,6 +62,7 @@ function UserForm({values, errors, touched, status}) {
           value='Sign Up!'
         />
       </div>
+      <p>Already have an account? <Link to ="/">Sign in!</Link></p>
     </Form>
     </>
   );
@@ -112,3 +114,5 @@ const FormikUserForm = withFormik({
 })(UserForm);
 
 export default FormikUserForm;
+
+//TODO User API to to set up individual user pages and user accounts.

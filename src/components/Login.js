@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function UserForm({values, errors, touched}) {
   
   return (
     <>
-    <h2>Login</h2>
+    <h2>Login!</h2>
     <Form className = 'login-form'>
 
       <div>
@@ -29,13 +30,16 @@ function UserForm({values, errors, touched}) {
           placeholder = 'Password' 
         />
       </div>
-        
+
+      <div>  
         <input 
           className = 'sub-btn'
           type='submit' 
           value='Sign In!'
         />
-    
+
+        <p>Don't have an account? <Link to="/register">Sign up today!</Link></p>
+      </div>
     </Form>
     </>
   );
@@ -62,6 +66,10 @@ const FormikUserForm = withFormik({
       axios 
         .post("https://reqres.in/api/users", values) //temporary user list api
         .then(results => {
+          /*if (results.data.token) {
+            //push to specific user dashboard/page
+          } */
+          
           console.log(results); //logging results
           resetForm(); //resetting form after submit
           setSubmitting(false); 
